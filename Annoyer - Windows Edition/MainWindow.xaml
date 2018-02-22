@@ -1,0 +1,29 @@
+﻿<Window x:Class="Annoyer___Windows_Edition.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Annoyer___Windows_Edition"
+        mc:Ignorable="d"
+        Title="Annoyer" Height="350" Width="525">
+    <Grid>
+        <Label Content="Annoyer" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
+        <Label Content="For Windows" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Tone Generator" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <Slider x:Name="toneSlider" Margin="10,132,10,0" VerticalAlignment="Top" Maximum="3" TickPlacement="BottomRight" TickFrequency="1" Value="1" SmallChange="1" Ticks="0, 1, 2, 3" IsSnapToTickEnabled="True"/>
+        <Label Content="1khz" HorizontalAlignment="Left" Margin="10,156,0,0" VerticalAlignment="Top"/>
+        <Label Content="15khz" Margin="0,161,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" HorizontalContentAlignment="Center"/>
+        <Label Content="Text to Speech" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <TextBox x:Name="ttsField" Margin="10,220,195,0" TextWrapping="Wrap" Text="Hello!" Height="24" VerticalAlignment="Top"/>
+        <Button x:Name="ttsButton" Content="Play" HorizontalAlignment="Right" Margin="0,220,10,0" VerticalAlignment="Top" Width="75" Height="24" Click="ttsButton_Click"/>
+        <CheckBox Content="Arm Tone Generator" Margin="168,35,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" HorizontalAlignment="Left"/>
+        <Button x:Name="toneButton" Content="Play Tone" HorizontalAlignment="Right" Margin="0,104,10,0" VerticalAlignment="Top" Width="76" IsEnabled="False" Click="toneButton_Click"/>
+        <StackPanel HorizontalAlignment="Left" Height="100" Margin="-21,233,0,-10.5" VerticalAlignment="Top" Width="100"/>
+        <ComboBox x:Name="genderBox" Margin="0,220,90,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100">
+            <ComboBoxItem IsSelected="True">Male</ComboBoxItem>
+            <ComboBoxItem>Female</ComboBoxItem>
+        </ComboBox>
+        <Separator Margin="10,46,10,0" Height="100" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

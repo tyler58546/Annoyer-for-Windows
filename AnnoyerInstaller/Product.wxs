@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="Annoyer" Language="1033" Version="1.1.1.0" Manufacturer="tyler58546" UpgradeCode="4f2cd44d-f4f5-44ec-840b-92e06082ba2b">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate EmbedCab="yes"/>
+    <WixVariable Id="WixUILicenseRtf" Value="mit.rtf" />
+    <WixVariable Id="WixUIBannerBmp" Value="WixUIBannerBmp.bmp"/>
+    <WixVariable Id="WixUIDialogBmp" Value="WixUIDialogBmp.bmp"/>
+    <UIRef Id="WixUI_Minimal" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALTEXT" Value="Annoyer has been successfully installed&#46; To open it&#44; open your start menu and search for &quot;Annoyer&quot;&#46;" />
+
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="APPLICATIONROOTDIRECTORY" Name="Annoyer"/>
+      </Directory>
+      <!-- Step 1: Define the directory structure -->
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="Annoyer"/>
+      </Directory>
+    </Directory>
+
+    <DirectoryRef Id="APPLICATIONROOTDIRECTORY">
+      <Component Id="myapplication.exe" Guid="bc380795-d73c-438c-b5c3-e4cfd694dc4f">
+        <File Id="myapplication.exe" Source="$(var.Annoyer.TargetPath)" KeyPath="yes" Checksum="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <!-- Step 2: Add the shortcut to your installer package -->
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="6a4083cd-a867-43e3-8e86-44680213e214">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+             Name="Annoyer"
+           Description="Annoyer is a very annoying app for windows"
+            Target="[#myapplication.exe]"
+                  WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\tyler58546\Annoyer" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <Feature Id="MainApplication" Title="Main Application" Level="1">
+      <ComponentRef Id="myapplication.exe" />
+      <!-- Step 3: Tell WiX to install the shortcut -->
+      <ComponentRef Id="ApplicationShortcut" />
+    </Feature>
+    
+    
+  </Product>
+</Wix>
