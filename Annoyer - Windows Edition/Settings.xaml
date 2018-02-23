@@ -1,0 +1,24 @@
+﻿<Window x:Class="Annoyer___Windows_Edition.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Annoyer___Windows_Edition"
+        mc:Ignorable="d"
+        Title="Annoyer Settings" Height="315.67" Width="483.993" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Settings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
+        <CheckBox x:Name="pref1" Content="Arm tone generator automatically when opening the app" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,155,0,0" TextWrapping="Wrap" Text="Default Voice:" VerticalAlignment="Top"/>
+        <ComboBox x:Name="pref2" Margin="88,152,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100">
+            <ComboBoxItem IsSelected="True">Male</ComboBoxItem>
+            <ComboBoxItem>Female</ComboBoxItem>
+        </ComboBox>
+        <Label Content="Tone Generator" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Text to Speech" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,183,0,0" TextWrapping="Wrap" Text="Default Text:" VerticalAlignment="Top"/>
+        <TextBox x:Name="pref3" Height="20" Margin="10,204,10,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource Settings}, Path=Default.defaultText}" VerticalAlignment="Top"/>
+        <Button x:Name="saveButton" Content="Save" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" IsDefault="True" Click="saveButton_Click"/>
+        <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75" IsCancel="True" Click="cancelButton_Click"/>
+    </Grid>
+</Window>

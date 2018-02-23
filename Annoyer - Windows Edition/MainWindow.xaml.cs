@@ -26,8 +26,18 @@ namespace Annoyer___Windows_Edition
         public MainWindow()
         {
             InitializeComponent();
+            if (Convert.ToBoolean(Properties.Settings.Default["autoArm"]))
+            {
+                armCheck.IsChecked = true;
+                toneButton.IsEnabled = true;
+            }
+            genderBox.SelectedIndex = Convert.ToInt32(Properties.Settings.Default["defaultVoice"]);
+            ttsField.Text = Convert.ToString(Properties.Settings.Default["DefaultText"]);
         }
+
+        
         SpeechSynthesizer speechSynthesizerObj;
+        Settings settingsWindow = new Settings();
 
         public static void PlayBeep(UInt16 frequency, int msDuration, UInt16 volume = 16383)
         {
@@ -124,7 +134,11 @@ namespace Annoyer___Windows_Edition
                 PlayBeep(15000, 1000);
             }
         }
-
         
+        private void settingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            settingsWindow.Show();
+
+        }
     }
 }
