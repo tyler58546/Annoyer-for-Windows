@@ -47,7 +47,6 @@ namespace Annoyer___Windows_Edition
             int samples = (int)((decimal)samplesPerSecond * msDuration / 1000);
             int dataChunkSize = samples * frameSize;
             int fileSize = waveSize + headerSize + formatChunkSize + headerSize + dataChunkSize;
-            // var encoding = new System.Text.UTF8Encoding();
             writer.Write(0x46464952); // = encoding.GetBytes("RIFF")
             writer.Write(fileSize);
             writer.Write(0x45564157); // = encoding.GetBytes("WAVE")
