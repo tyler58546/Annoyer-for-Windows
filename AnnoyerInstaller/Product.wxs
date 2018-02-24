@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="Annoyer" Language="1033" Version="1.2.0.1" Manufacturer="tyler58546" UpgradeCode="4f2cd44d-f4f5-44ec-840b-92e06082ba2b">
+	<Product Id="*" Name="Annoyer" Language="1033" Version="1.2.1.1" Manufacturer="tyler58546" UpgradeCode="4f2cd44d-f4f5-44ec-840b-92e06082ba2b">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
