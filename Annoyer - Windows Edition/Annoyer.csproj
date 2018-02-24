@@ -134,5 +134,17 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="baby.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="nails-on-cb.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="siren.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="snd01.mp3" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

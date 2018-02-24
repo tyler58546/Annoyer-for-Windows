@@ -27,7 +27,6 @@ namespace Annoyer___Windows_Edition
                 pref1.IsChecked = true;
             }
             pref2.SelectedIndex = Convert.ToInt32(Properties.Settings.Default["defaultVoice"]);
-
         }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
@@ -36,13 +35,15 @@ namespace Annoyer___Windows_Edition
             Properties.Settings.Default["autoArm"] = pref1.IsChecked;
             Properties.Settings.Default["defaultVoice"] = pref2.SelectedIndex;
             Properties.Settings.Default["defaultText"] = pref3.Text;
+            
             Properties.Settings.Default.Save();
             this.Close();
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+
+            this.Close();
         }
     }
 }

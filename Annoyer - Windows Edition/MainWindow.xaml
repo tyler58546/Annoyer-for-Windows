@@ -5,25 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Annoyer___Windows_Edition"
         mc:Ignorable="d"
-        Title="Annoyer" Height="530.018" Width="525">
+        Title="Annoyer" Height="575" Width="575" MinWidth="575" MinHeight="575">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="164*"/>
+            <ColumnDefinition Width="121*"/>
+        </Grid.ColumnDefinitions>
         <Label Content="Annoyer" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
         <Label Content="For Windows" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Label Content="Tone Generator" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-        <Slider x:Name="toneSlider" Margin="10,132,10,0" VerticalAlignment="Top" Maximum="3" TickPlacement="BottomRight" TickFrequency="1" Value="1" SmallChange="1" Ticks="0, 1, 2, 3" IsSnapToTickEnabled="True"/>
+        <Slider x:Name="toneSlider" Margin="10,132,10,0" VerticalAlignment="Top" Maximum="3" TickPlacement="BottomRight" TickFrequency="1" Value="1" SmallChange="1" Ticks="0, 1, 2, 3" IsSnapToTickEnabled="True" Grid.ColumnSpan="2"/>
         <Label Content="1khz" HorizontalAlignment="Left" Margin="10,156,0,0" VerticalAlignment="Top"/>
-        <Label Content="15khz" Margin="0,161,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" HorizontalContentAlignment="Center"/>
+        <Label Content="15khz" Margin="0,161,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Grid.Column="1"/>
         <Label Content="Text to Speech" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-        <TextBox x:Name="ttsField" Margin="10,220,195,0" TextWrapping="Wrap" Text="Hello!" Height="24" VerticalAlignment="Top"/>
-        <Button x:Name="ttsButton" Content="Play" HorizontalAlignment="Right" Margin="0,220,10,0" VerticalAlignment="Top" Width="75" Height="24" Click="ttsButton_Click"/>
+        <TextBox x:Name="ttsField" Margin="10,220,195,0" TextWrapping="Wrap" Text="Hello!" Height="24" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Button x:Name="ttsButton" Content="Play" HorizontalAlignment="Right" Margin="0,220,10,0" VerticalAlignment="Top" Width="75" Height="24" Click="ttsButton_Click" Grid.Column="1"/>
         <CheckBox x:Name="armCheck" Content="Arm Tone Generator" Margin="168,35,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" HorizontalAlignment="Left"/>
-        <Button x:Name="toneButton" Content="Play Tone" HorizontalAlignment="Right" Margin="0,104,10,0" VerticalAlignment="Top" Width="76" IsEnabled="False" Click="toneButton_Click"/>
-        <ComboBox x:Name="genderBox" Margin="0,220,90,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100">
+        <Button x:Name="toneButton" Content="Play Tone" HorizontalAlignment="Right" Margin="0,104,10,0" VerticalAlignment="Top" Width="76" IsEnabled="False" Click="toneButton_Click" Grid.Column="1"/>
+        <ComboBox x:Name="genderBox" Margin="0,220,90,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100" Grid.Column="1">
             <ComboBoxItem IsSelected="True">Male</ComboBoxItem>
             <ComboBoxItem>Female</ComboBoxItem>
         </ComboBox>
-        <Separator Margin="10,46,10,0" Height="100" VerticalAlignment="Top"/>
+        <Separator Margin="10,46,10,0" Height="100" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <Button x:Name="settingsButton" Content="Settings..." HorizontalAlignment="Left" Margin="168,55,0,0" VerticalAlignment="Top" Width="75" Click="settingsButton_Click"/>
+        <Rectangle Fill="#FFF4F4F5" Height="172" Margin="10,280,0,0" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Width="540" Grid.ColumnSpan="2"/>
+        <ScrollViewer Height="172" Margin="10,280,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="540" Grid.ColumnSpan="2">
+            <Grid>
+                <Image x:Name="soundImg01" Height="100" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Source="baby.jpg" Stretch="UniformToFill" Cursor="Hand" MouseUp="soundImg01_MouseUp"/>
+                <Image x:Name="soundImg02" Margin="191,10,192,62" Width="100" Height="100" Source="nails-on-cb.jpg" Stretch="UniformToFill" Cursor="Hand" MouseUp="soundImg02_MouseUp"/>
+                <Image x:Name="soundImg03" Height="100" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" Source="siren.jpg" Stretch="UniformToFill" Cursor="Hand" MouseUp="soundImg03_MouseUp"/>
+                <Label Content="Baby Crying" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="10,110,0,0" HorizontalContentAlignment="Center"/>
+                <TextBlock TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,110,0,0" Width="100" Height="35" TextAlignment="Center">Nails on Chalkboard</TextBlock>
+                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Margin="0,110,10,0" Height="35" TextAlignment="Center" HorizontalAlignment="Right" Width="100">Siren</TextBlock>
+            </Grid>
+        </ScrollViewer>
+        <Label Content="Sound Effects" HorizontalAlignment="Left" Margin="10,249,0,227.5" FontWeight="Bold"/>
 
     </Grid>
 </Window>

@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Speech;
 using System.Speech.Synthesis;
 using System.IO;
+using System.Media;
 
 namespace Annoyer___Windows_Edition
 {
@@ -134,11 +135,57 @@ namespace Annoyer___Windows_Edition
                 PlayBeep(15000, 1000);
             }
         }
-        
+        private void PlaySound1()
+        {
+            var uri = new Uri(@"snd01.mp3", UriKind.RelativeOrAbsolute);
+            var player = new MediaPlayer();
+
+            player.Open(uri);
+            player.Play();
+        }
+        private void PlaySound2()
+        {
+            var uri = new Uri(@"snd02.mp3", UriKind.RelativeOrAbsolute);
+            var player = new MediaPlayer();
+
+            player.Open(uri);
+            player.Play();
+        }
+        private void PlaySound3()
+        {
+            var uri = new Uri(@"snd03.mp3", UriKind.RelativeOrAbsolute);
+            var player = new MediaPlayer();
+
+            player.Open(uri);
+            player.Play();
+        }
         private void settingsButton_Click(object sender, RoutedEventArgs e)
         {
-            settingsWindow.Show();
+            try
+            {
+                settingsWindow.Show();
+            } catch (InvalidOperationException)
+            {
+                settingsWindow = new Settings();
+                settingsWindow.Show();
+            }
+            
 
+        }
+
+        private void soundImg01_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            PlaySound1();
+        }
+
+        private void soundImg02_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            PlaySound2();
+        }
+
+        private void soundImg03_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            PlaySound3();
         }
     }
 }

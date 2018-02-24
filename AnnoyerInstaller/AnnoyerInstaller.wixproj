@@ -39,6 +39,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="mit.rtf" />
+    <Content Include="snd01.mp3" />
+    <Content Include="snd02.mp3" />
+    <Content Include="snd03.mp3" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" Condition=" '$(WixTargetsPath)' != '' " />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets" Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets') " />

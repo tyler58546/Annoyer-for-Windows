@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="Annoyer" Language="1033" Version="1.2.1.1" Manufacturer="tyler58546" UpgradeCode="4f2cd44d-f4f5-44ec-840b-92e06082ba2b">
+	<Product Id="*" Name="Annoyer" Language="1033" Version="1.2.2.0" Manufacturer="tyler58546" UpgradeCode="4f2cd44d-f4f5-44ec-840b-92e06082ba2b">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -26,6 +26,15 @@
       <Component Id="myapplication.exe" Guid="bc380795-d73c-438c-b5c3-e4cfd694dc4f">
         <File Id="myapplication.exe" Source="$(var.Annoyer.TargetPath)" KeyPath="yes" Checksum="yes"/>
       </Component>
+    <Component Id="snd01.mp3" Guid="6e9a582f-f33c-4576-9c16-ef84801073d8">
+        <File Id="snd01.mp3" Source="snd01.mp3" KeyPath="yes" Checksum="yes"/>
+      </Component>
+    <Component Id="snd02.mp3" Guid="ed803427-b989-4ad6-8c41-6d6669e444e9">
+        <File Id="snd02.mp3" Source="snd02.mp3" KeyPath="yes" Checksum="yes"/>
+      </Component>
+    <Component Id="snd03.mp3" Guid="266e2843-d32a-47e8-ac7e-607989d0d7af">
+        <File Id="snd03.mp3" Source="snd03.mp3" KeyPath="yes" Checksum="yes"/>
+      </Component>
     </DirectoryRef>
 
     <!-- Step 2: Add the shortcut to your installer package -->
@@ -43,6 +52,9 @@
 
     <Feature Id="MainApplication" Title="Main Application" Level="1">
       <ComponentRef Id="myapplication.exe" />
+      <ComponentRef Id="snd01.mp3" />
+      <ComponentRef Id="snd02.mp3" />
+      <ComponentRef Id="snd03.mp3" />
       <!-- Step 3: Tell WiX to install the shortcut -->
       <ComponentRef Id="ApplicationShortcut" />
     </Feature>
